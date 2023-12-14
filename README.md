@@ -62,6 +62,11 @@ SECRET_KEY=
 Для автоматизации развертывания ПО на боевых серверах используется среда виртуализации Docker, а также Docker-compose - инструмент для запуска многоконтейнерных приложений. Docker позволяет «упаковать» приложение со всем его окружением и зависимостями в контейнер, который может быть перенесён на любую Linux -систему, а также предоставляет среду по управлению контейнерами. Таким образом, для разворачивания серверного ПО достаточно чтобы на сервере с ОС семейства Linux были установлены среда Docker и инструмент Docker-compose.
 
 ## Описание команд для запуска приложения в контейнерах
+Клонировать репозиторий и перейти в директорию (infra) в командной строке:
+```bash
+git clone git@github.com:usdocs/yamdb_project.git 
+cd infra 
+```
 Для запуска проекта в контейнерах используем **docker-compose** : ```docker-compose up -d --build```, находясь в директории (infra) с ```docker-compose.yaml```
 
 После сборки контейнеров выполяем:
@@ -77,19 +82,33 @@ docker-compose exec web python manage.py collectstatic --no-input
 #### Примеры некоторых запросов API
 
 Регистрация пользователя:  
-``` POST /api/v1/auth/signup/ ```  
+```bas
+POST /api/v1/auth/signup/
+```  
 Получение данных своей учетной записи:  
-``` GET /api/v1/users/me/ ```  
+```bas
+GET /api/v1/users/me/
+```  
 Добавление новой категории:  
-``` POST /api/v1/categories/ ```  
+```bas
+POST /api/v1/categories/
+```  
 Удаление жанра:  
-``` DELETE /api/v1/genres/{slug}/ ```  
+```bas
+DELETE /api/v1/genres/{slug}/
+```  
 Частичное обновление информации о произведении:  
-``` PATCH /api/v1/titles/{titles_id}/ ```  
+```bas
+PATCH /api/v1/titles/{titles_id}/
+```  
 Получение списка всех отзывов:  
-``` GET /api/v1/titles/{title_id}/reviews/ ```   
+```bas
+GET /api/v1/titles/{title_id}/reviews/
+```   
 Добавление комментария к отзыву:  
-``` POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/ ```    
+```bas
+POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/
+```    
 
 #### Полный список запросов API находятся в документации
 
